@@ -103,7 +103,7 @@ class GraphvizOutput(Output):
             f.write(source)
 
         cmd = '"{0}" -T{1} -Gdpi={2} -o{3} {4}'.format(
-            self.tool, self.output_type, self.dpi self.output_file, temp_name
+            self.tool, self.output_type, self.dpi , self.output_file, temp_name
         )
 
         self.verbose('Executing: {0}'.format(cmd))
