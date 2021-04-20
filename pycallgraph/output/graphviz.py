@@ -19,6 +19,7 @@ class GraphvizOutput(Output):
         self.output_type = 'png'
         self.font_name = 'Verdana'
         self.font_size = 7
+        self.dpi = 300
         self.group_font_size = 10
         self.group_border_color = Color(0, 0, 0, 0.8)
 
@@ -101,8 +102,8 @@ class GraphvizOutput(Output):
         with os.fdopen(fd, 'w') as f:
             f.write(source)
 
-        cmd = '"{0}" -T{1} -o{2} {3}'.format(
-            self.tool, self.output_type, self.output_file, temp_name
+        cmd = '"{0}" -T{1} -Gdpi={2} -o{3} {4}'.format(
+            self.tool, self.output_type, self.dpi self.output_file, temp_name
         )
 
         self.verbose('Executing: {0}'.format(cmd))
